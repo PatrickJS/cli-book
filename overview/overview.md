@@ -1,29 +1,61 @@
 #Creating Command Line Tools with Node.js
 
-##Intro
+##Forward
 
 need to already know basics of javascript
 
-teach about command line tools in general (args/prompts)
+#Part I
 
-talks about argv in node.js
+##Chapter One - Command Line Tool Overview
 
-##Getting Fancy
+* What is a command line tool?
+* clt arguments
+* prompts
 
-use arguments
+##Chapter Two - Backbone for cli in node
 
-create a configuration module for your cli
+This chapter is going to be similar to the post I wrote. Explaining the basic, no-library setup.
 
+* Bin files
+* Package.json config
+* library files
+* install them
+* use stdout, not console.log
+
+##Chapter Three - Arguments and Prompts
+
+arguments and prompts
+
+using arguments and prompts
+
+#Part II
+
+##Chapter Four - saving preferences/configuraitons
+
+create a file that lets to set, get, and delete config items
+
+##Chapter Five - introduction to comander
+
+using a library the self generates documentation and better argument parsing
+
+##Chapter Six - adding color
+
+use library to add color to your output
+
+##Chapter Seven - Smart Output
 rewriting existing output (show loading until job is complete)
 
  * readline interface
 
-use some library after using built in arguments parser
+#Part III
 
-adding colors to your command line tools
+##Chapter Eight - Tweet from the cli
 
-##Demo Projects
+tweet -u andrewjmead -t "This shit is awesome."
 
-create a tool that lets to tweet
+tweet -t "Awesome"
+> no default user specified
 
-create a script that will minify your javascript code
+##Chapter Nine
+
+do something with file system
