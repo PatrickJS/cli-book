@@ -4,6 +4,7 @@
 
 need to already know basics of javascript
 
+-----
 #Part I
 
 ##Chapter One - Command Line Tool Overview
@@ -28,6 +29,7 @@ arguments and prompts
 
 using arguments and prompts
 
+-----
 #Part II
 
 ##Chapter Four - saving preferences/configuraitons
@@ -47,14 +49,16 @@ rewriting existing output (show loading until job is complete)
 
  * readline interface
 
+-----
 #Part III
 
 ##Chapter Eight - Tweet from the cli
 
-tweet -u andrewjmead -t "This shit is awesome."
-
-tweet -t "Awesome"
-> no default user specified
+	tweet -u andrewjmead -t "This shit is awesome."
+	
+	tweet -t "Awesome"
+	
+	> no default user specified
 
 ##Chapter Nine
 
