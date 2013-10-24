@@ -1,59 +1,71 @@
 #Chapter One - Overview of Command Line Tools
 
-Feel free to skip or skim this chapter if you use the command line often enough. I'm going to give a tour of the command line, its syntax and talk a bit about running commands.
+Feel free to skip or skim this chapter if you use the command line often enough. This quick tour of the command line is intended to get everyone up to speed and ready to create their own command line tools.
 
-##What is it?
+##What is the command line?
 
-The command line is simple. It's a place where you can type in commands for your computer to run. You computer will atempt to run the command, whatever it may be, and report back any results. The command line allows you to tell your computer exactly what you want it to do. You computer will do whatever you tell it, so make sure not to issue commands that will cause harm to your machine.
+The command line is simple. It's a text-based prompt that lets you issue commands for your computer to run. You machine will try to run the command exactly as you have specified and report any results back to you. 
 
-We are going to be creating a ton of commands thought this book. It's probably a good idea to be familiar with running commands and navigating your file system via the terminal.
+The command line is at the heart of your computer, and it exposes some userful and important tools. You computer will atempt to run any command that you issue, even if that command may be considered "harmful". With great power comes great responsibility, so be safe while in the terminal
 
-Let's start by getting you into the command line, and then we will run some basic commands.
+We are going to be creating many commands that you will be able to run from the command line, infact, that's the entire purpose of this book. To ensure you get the most out of this experience, let's run some built-in commands, navigate our files and folders via the command line, and get comfortable with our new home.
+
+Step one, let's get you into the command line.
 
 ##Accessing the command line
 
-Depending on your operating system, it may be called something slightly different. In OS X it is refered to as the terminal, in Windows it is call the command prompt. I will use terminal thoughout this book, but for no particular reason other than a preference.
+Depending on your operating system, the command line may be called something slightly different. In OS X they use "terminal", in Windows it is call the "command prompt". They all refer to the same thing.
 
-**Windows** - If you are running windows, you can open the terminal by pressing ```window + r```. You can then run "cmd" to launch and intance of the command line.
+For brevities sake, I will refer to the command prompt as the terminal regardless of the operating system.
 
-**OS X** - If you are on a Mac you can open the command line by accessing ```Applications/Utilities/Terminal```.
+**Opening Terminal in OS X** - If you are on a Mac you can open the terminal by navigating to `Application/Utilities` and selecting `Terminal`. This will launch a terminal, presenting you with a screen that will look something like this.
 
-On any system, you should be able to seach for command line or terminal and find the systems terminal.
+*image*
 
-##Syntax
+**Opening the command prompt in Windows** - You can open the terminal in Windows by navigating to `C:\Windows\System32` and executing `cmd.exe`. You can also press `windows key + r`, type in `cmd`, and click enter. You should now see a window similar to this.
 
-The black screen in front of you might look a daunting, but it really is simple to break down.
+*image*
 
-*picture*
+Every operating system has something similar. In Ubuntu, you can search for "terminal" to find its terminal. Other linux distributions have something similar.
 
-Everything before ```:``` is my username. Then we have the current working directory path followed by a ```$```. These are going to be display everytime the terminal is ready for a new command. They let you know you can issue a new command, and the provide some context to who is using the computer and what folder they are in.
+##The prompt
 
-Everything after the ```$``` is editable. Here you can type in the command you want to run.
+Just like I promised, you are now in front of a black, text-based, computer program. The terminal has several different parts, and understanding the vocabulary will go a long way to successfully creating your own terminal tools.
 
-Once you issue a command, the computer may print out some results or errors. These will be shown on lines without this prompt format.
+First up, the `prompt`. When your computer is ready for you to give it a command, it will show the `prompt`. This is all the gibberish that appears before your cursor. My OS X prompt looks like this.
 
-To better understand the syntax, lets take a look at the worlds simplest command, ```ls```.
+	PHLMLAMEAD:~/code$ _
+
+The first thing on this line is my username. Next is a colon which servers as a seperator. Following that is something called the `current working directory`. Whenever you are in the terminal, you are alway inside a specific folder. This may be you user profile folder, or something like your document. Either way, at any point in time you have a current working directory. This is followed by a dollar sign.
+
+Everything after the dollar sign is the command you are going to run. You can type and edit you command, and when you hit enter your computer will attempt to run it.
+
+The prompt is important because it gives you context for the commands you are about to run. If you are going to delete some files, you are going to want to make sure that you are in the correct folder. If you are managing multiple users, it's important to know who exactly is issuing the command.
+
+Whenever your terminal is showing you the prompt described above, it's ready to run a command. To see what running a command looks like, let's take a look at a command called `ls`.
 
 ##Running a command
 
-Remember that current working directory we talked about? While if you issue the `ls` command, it will show you the folders and files in that directory. I'm going to navigate to the folder that contains the contents of this book and run `ls`, the result is below.
+Remember the current working directory that we talked about? While if you issue the `ls` command, the terminal will display the folders and files in that directory. I'm going to navigate to the folder that contains the contents of this book and run `ls`. The results are below.
 
 	PHLMLAMEAD:~/code/creating-clis-in-nodejs$ ls
 	chapter-one	  overview	 readme.md
 	
-	PHLMLAMEAD:~/code/creating-clis-in-nodejs$ 
+	PHLMLAMEAD:~/code/creating-clis-in-nodejs$ _
 
-Above you see that same prompt we discussed above. It show who is issuing the command, and what folder they are doing it from. As you can see, I'm running the command from the `creating-clis-in-nodejs/` directory. Then I type in the command I want to run, which in this case is `ls`.
+Above you can see the prompt we previously discussed. This is handy for running `ls` becuase it tell me which directory I will be print the contents of. As you can see, I'm running the command from the `~/code/creating-clis-in-nodejs/` directory.
 
-The next line is the results of the command. Notice there is no prompt on this line, it starts with the results. In my case, its two folders, `chapter-one` and `overview`, and a file called `readme.md`.
+After the dollar sign I type in my command, click enter, and view the results.
 
-After the results from you command, the terminal is ready for more!
+The line after the prompt contains the results of the issued command. Notice there is no prompt on this line, it starts with the results. In my case, its two folders, `chapter-one` and `overview`, and a file called `readme.md`.
 
-##Arguments and flags
+After issuing the command, I am returned back to the prompt to tell my computer what to do next.
+
+##Command syntax
 
 Commands like `ls` can take other inputs as well. These come in the form of arguments and flags.
 
-Flags are are options that can alter the operation of a command. They start with one or two dashes (`-`). They can operate alone or they might take an additional argument with a space inbetween the two. Let's take a look at a flag that the `ls` command supports.
+Flags are are options that can alter the operation of a command. They start with one or two dashes (`-`). They can operate alone or they might take an additional arguments after a white space. Let's take a look at a flag that the `ls` command supports.
 
 	PHLMLAMEAD:~/code/creating-clis-in-nodejs$ ls -l ~/code
 	total 75552
@@ -63,41 +75,85 @@ Flags are are options that can alter the operation of a command. They start with
 	-rw-r--r--   1 andrew_mead  1804680031  38680846 Oct 18 16:39 hay.zip
 	drwxr-xr-x  12 andrew_mead  1804680031       408 Oct 20 18:03 node-progress
 
-Notice we are running the same command, from the same folder, yet we are getting a much different result. This is because of the `-l` flag. The `-l` flag lets you provide a custom location to print the contents of. This is provided after a space in `-l`.
+Notice we are running the same command from the same folder, yet we are getting a different result. This is because of the flag, `-l`. `-l` lets you provide a custom directory to print the contents of, instead of your current working directory. `-l` takes an arguments with is the directory to use in place of the current working directory.
 
-Not all flags require arguments, and not all arguments need flags. Let's take a look at the `mkdir` command, to see this syntax.
+-----
 
-	PHLMLAMEAD:~/code$ mkdir some-folder
+Some commands require arguments to run. The `mkdir` command creates a new directory in your cwd. Let's run it without any arguments or flags.
+
+	PHLMLAMEAD:~$ mkdir
+	usage: mkdir [-pv] [-m mode] directory ...
+	
+	PHLMLAMEAD:~$ _
+
+The command was not run with the required arguments, so it printed out instructions on how to use it. Notice how `-pv` and `-m mode` are wrapped in brackets. Flags or arguments surrounded in brackets are optional. The `directory` argument however is required.
+
+Let's run `mkdir` again, but this time provide a name for our new folder.
+
+	PHLMLAMEAD:~/code$ mkdir some-folder-name
 	
 	PHLMLAMEAD:~/code$ ls
 	backbone-playground	       hay		    node-progress
-	creating-clis-in-nodejs	   hay.zip		some-folder
+	creating-clis-in-nodejs	   hay.zip		some-folder-name
 	
-	PHLMLAMEAD:~/code$ 
+	PHLMLAMEAD:~/code$ _
 
-
-The above syntax runs a command that will create a directory in the current working directory. It also take an arguments which will be the name of the new folder. If you want to have spaces in your folder name, you will need to wrap it in quotes.
-
-If I run `ls` again, you can see that new folder was successfuly created.
+This time the correct arguments were provided so the command successfuly ran. You can confirm this by running `ls`, and you will see the directory that you just created.
 
 ##Basic navigation
 
-We will be doing a lot of work in the terminal, and it's important to know how to get around. This is done via the `cd` command which will change directory.
+We've talked about the current working directory quite a bit, and how you are always in a directory when you in the terminal. If you want to navigate to a different directory, you will need to learn about the `cd` command.
 
-I you want to go into a folder in your current working directory, you can run the `cd` command, where the first arument is the path to go to.
+``cd` stands for "change directory", and it is at the heart of terminal navigation. It lets you navigates relative to your current position, navigate relative to your systems root directory, and on some operating system you can navigate relative to your user folder.
 
-	PHLMLAMEAD:~/code$ cd creating-clis-in-nodejs/
-	PHLMLAMEAD:~/code/creating-clis-in-nodejs$ 
+**warning** - The `cd` command has some differences between operating systems. I will point out these differences along the way.
+
+###Navigating to a nested folder
+
+The first way to change directory is my starting from your cwd and navigating to its parent or starting from your cwd and navigating into a nested directory. 
+
+Let's start back in my `code` direcetory where we created a new folder with `mkdir`. To navigate into that folder, and updated the cwd, you need to run the following:
+
+	PHLMLAMEAD:~/code$ cd some-folder/
 	
-Notice the change in the path in the prompt. It now shows my updated location. You can also go backwords by running the following.
+	PHLMLAMEAD:~/code/some-folder$ _
 
-	PHLMLAMEAD:~/code/creating-clis-in-nodejs$ cd ..
-	PHLMLAMEAD:~/code$
+Above I run `cd`, passing the folder name as the only argument. This is saying that I want to change my directory to the child folder, `some-folder`. Notice that when the prompt is displayed again, the path has changed from `~/code` to `~/code/some-folder`.
 
-If you want to travers outside of your current location, you can run `cd /` to get to the root of your computer, or `cd ~` to get to your user directory.
+###Navigating to the parent folder
+
+If you want to navigate to your cwds parent, you still run `cd` but with a special argument `..`. The result is below.
+
+	PHLMLAMEAD:~/code/some-folder$ cd ../
+	
+	PHLMLAMEAD:~/code$ _
+
+I started inside of `some-folder`, and after running `cd` the current working directory was changed to its parent directory `code`. The special path `../` tells the command you want to change the directory to the parent directory.
+
+###Navigating relative to the root directory
+
+There are a couple other ways you can use cd. These have no respect to your current directory.
+
+If you want to navigate relative to your computers root directory, you can use `cd`, but prefacy the directory name with a forward slash.
+
+	PHLMLAMEAD:~/code/some-folder$ cd /bin
+	
+	PHLMLAMEAD:/bin$ _
+
+Notice I was in `~/code/some-folder`, but was able to navigate to `/bin` without running `cd ../` a ton of times.
+
+###Navigate relative to users directory
+
+**warning** - The Windows command prompt does not support this method.
+
+Like `cd /` you can also navigate relative to the users home directory. To do this, preface the path with a `~/`. My code directory is in my user profile directory, so running the following will get me there from anywhere.
+
+	PHLMLAMEAD:/bin$ cd ~/code
+	
+	PHLMLAMEAD:~/code$ _
+
+Obviously if I login as someone else, using `~/` will be a different user directory.
  
-##Where are the commands comming from?
+##Ready to go
 
-You are running all these built in commands, but where are they coming from? In the case of osx you can find all of these in /bin. If you want to see for yourself run `cd /bin`. Then run `ls` to list out the directories contents.
-
-The system knows to look in this folder for commands. When we create our own commands using Node.js we will need to alert the system of our commands location.
+Congratulations, you have passed basic training~
