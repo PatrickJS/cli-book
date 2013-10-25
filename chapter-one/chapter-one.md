@@ -1,26 +1,27 @@
 #Chapter One - Overview of Command Line Tools
 
-Feel free to skip or skim this chapter if you use the command line often enough. This quick tour of the command line is intended to get everyone up to speed and ready to create their own command line tools.
+Feel free to skip or skim this chapter if you're comfortable navigating and running commands from the command line. This introductory tour of the command line will get everyone up to speed with the command line, its syntax, and navigation.
 
 ##What is the command line?
 
-The command line is simple. It's a text-based prompt that lets you issue commands for your computer to run. You machine will try to run the command exactly as you have specified and report any results back to you. 
+The command line is simple. It's a text-based interface for running applications on your computer. The command line doesn't have a fancy GUI and is a mouse-free zone. It's the true connection between you and your computer.
 
-The command line is at the heart of your computer, and it exposes some userful and important tools. You computer will atempt to run any command that you issue, even if that command may be considered "harmful". With great power comes great responsibility, so be safe while in the terminal
+All you can do at the command line is issue commands. The command line will display a prompt asking you for the command you want to run, you then type in the command you would like to run and your commoputer runs it. Once your command has run, the command line will display another prompt asking for the next command.
 
-We are going to be creating many commands that you will be able to run from the command line, infact, that's the entire purpose of this book. To ensure you get the most out of this experience, let's run some built-in commands, navigate our files and folders via the command line, and get comfortable with our new home.
+You can do anything from the command line, and anything you can't yet do, you can build. The best part about the command line is that it has never been easier to create complex and powerful tool for it.
 
-Step one, let's get you into the command line.
+**important** - Your computer will try to run any command you give it. While some distructive commands may require certian privliges, others do not. Be safe while using the terminal.
 
 ##Accessing the command line
 
 Depending on your operating system, the command line may be called something slightly different. In OS X they use "terminal", in Windows it is call the "command prompt". They all refer to the same thing.
 
-For brevities sake, I will refer to the command prompt as the terminal regardless of the operating system.
+**note** - For brevities sake, I will refer to the command prompt as the terminal regardless of the operating system.
 
 **Opening Terminal in OS X** - If you are on a Mac you can open the terminal by navigating to `Application/Utilities` and selecting `Terminal`. This will launch a terminal, presenting you with a screen that will look something like this.
 
 *image*
+<!--![Alt text](./images/osx-terminal.png)-->
 
 **Opening the command prompt in Windows** - You can open the terminal in Windows by navigating to `C:\Windows\System32` and executing `cmd.exe`. You can also press `windows key + r`, type in `cmd`, and click enter. You should now see a window similar to this.
 
