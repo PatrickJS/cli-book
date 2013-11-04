@@ -1,31 +1,30 @@
 #Chapter One - Overview of Command Line Tools
 
-Feel free to skip or skim this chapter if you're comfortable navigating and running commands from the command line. This introductory tour of the command line will get everyone up to speed with the command line, its syntax, and navigation.
+Feel free to skip or skim this chapter if you're comfortable navigating and running commands from the command line. This introductory tour of the command line will get everyone up to speed with the command line, its syntax, and command line navigation.
 
 ##What is the command line?
 
-The command line is simple. It's a text-based interface for running applications on your computer. The command line doesn't have a fancy GUI and is a mouse-free zone. It's the true connection between you and your computer.
+The command line is a text-based interface for running applications on your computer. It doesn't have any fancy GUIs and is a mouse-free area. The command line lets you access your computer at a basic level.
 
-All you can do at the command line is issue commands. The command line will display a prompt asking you for the command you want to run, you then type in the command you would like to run and your commoputer runs it. Once your command has run, the command line will display another prompt asking for the next command.
+In the command line, you issue commands for your computer to run. The command line will display a prompt asking you for the command you want to run, you then type in the command you would like to run and your commoputer runs it. Once your command has run, the command line will display another prompt asking for the next command.
 
-You can do anything from the command line, and anything you can't yet do, you can build. The best part about the command line is that it has never been easier to create complex and powerful tool for it.
+You can do anything from the command line. Anything you can't do, you can build. The best part about the command line is that it has never been easier to create complex and powerful command line tools.
 
 **important** - Your computer will try to run any command you give it. While some distructive commands may require certian privliges, others do not. Be safe while using the terminal.
 
 ##Accessing the command line
 
-Depending on your operating system, the command line may be called something slightly different. In OS X they use "terminal", in Windows it is call the "command prompt". They all refer to the same thing.
+Depending on your operating system, the command line may be called something slightly different. In OS X it's called "terminal" and in Windows it is called "command prompt". These both refer the to operating system version of the command prompt.
 
 **note** - For brevities sake, I will refer to the command prompt as the terminal regardless of the operating system.
 
 **Opening Terminal in OS X** - If you are on a Mac you can open the terminal by navigating to `Application/Utilities` and selecting `Terminal`. This will launch a terminal, presenting you with a screen that will look something like this.
 
-*image*
-<!--![Alt text](./images/osx-terminal.png)-->
+<!--![OSX Terminal](./images/osx-terminal.png)-->
 
 **Opening the command prompt in Windows** - You can open the terminal in Windows by navigating to `C:\Windows\System32` and executing `cmd.exe`. You can also press `windows key + r`, type in `cmd`, and click enter. You should now see a window similar to this.
 
-*image*
+<!--![Windows Command Prompt](./images/windows.png)-->
 
 Every operating system has something similar. In Ubuntu, you can search for "terminal" to find its terminal. Other linux distributions have something similar.
 
@@ -37,13 +36,15 @@ First up, the `prompt`. When your computer is ready for you to give it a command
 
 	PHLMLAMEAD:~/code$ _
 
-The first thing on this line is my username. Next is a colon which servers as a seperator. Following that is something called the `current working directory`. Whenever you are in the terminal, you are alway inside a specific folder. This may be you user profile folder, or something like your document. Either way, at any point in time you have a current working directory. This is followed by a dollar sign.
+The first thing on this line is my username. Next is a colon which serves as a seperator. Following that is something called the `current working directory`. Whenever you are in the terminal, you are alway inside a specific folder. This may be you user directory or your documents folder. Either way, at any point in time you have a current working directory. This is followed by a dollar sign.
 
-Everything after the dollar sign is the command you are going to run. You can type and edit you command, and when you hit enter your computer will attempt to run it.
+Everything after the dollar sign is the command you are going to run. You can type and edit your command, and when you hit enter your computer will attempt to run it.
 
 The prompt is important because it gives you context for the commands you are about to run. If you are going to delete some files, you are going to want to make sure that you are in the correct folder. If you are managing multiple users, it's important to know who exactly is issuing the command.
 
-Whenever your terminal is showing you the prompt described above, it's ready to run a command. To see what running a command looks like, let's take a look at a command called `ls`.
+Whenever your terminal is showing you the prompt shown above, it's ready to run a command. To see what running a command looks like, let's take a look at a command called `ls`.
+
+**EDITED UP TO HERE**
 
 ##Running a command
 
