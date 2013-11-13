@@ -1,14 +1,14 @@
 #Chapter Two - Creating your first command line tool
 
-Okay, creating first command line tool is going to be simple. In the chapter we are going to setup a seed project you can use for all your future command line tools, and we'll go over the basics to creating a command line tool that anyone can install via `npm`.
+Okay, creating first command line tool is going to be simple. In this chapter we are going to setup a seed project you can use for all your future command line tools. We'll go over the basics to creating a command line tool that anyone can install via `npm`.
 
-`npm` is the package manager that is bundeled with node. It provides an easy way for people to install software written in Node. NPM is bundled with Node, and will let anyone with Node install your tools in a couple seconds.
+`npm` is the package manager that is bundeled with node. It provides an easy way for people to install node modules. This will make a great distribution platform for the tools we create.
 
 ##Prerequisites
 
-All you need to do is intall Node. Node comes bundeled with npm, so head over to [Node.org](http://nodejs.org) and run the installer.
+All you need to do is intall Node. You can download the installer at [Node.org](http://nodejs.org).
 
-To confirm your installtion, pop up a terminal and check check that everythings working.
+Open a terminal and check that node and npm installed correctly. You can do that by checking the version for each.
 
 	PHLMLAMEAD:~$ node -v
 	v0.10.13
@@ -18,12 +18,12 @@ To confirm your installtion, pop up a terminal and check check that everythings 
 	
 	PHLMLAMEAD:~$ _
 
-`-v` flag is a common command to check the version of the software.
+`-v` flag is a common flag used to display the version of the software.
 
 
 ##Directory structure
 
-The following is the directory structure for our seed projects. Check it out, then we'll break it down.
+The following is the directory structure for our seed project. Check it out, then we'll break it down.
 
 	/project
 	  package.json
@@ -34,7 +34,7 @@ The following is the directory structure for our seed projects. Check it out, th
 
 ###package.json
 
-`package.json` is the configuration file for your npm package. It's required for any npm module and is placed at in the root of your npm package. This is a configuration file that let's npm install dependencies, lets users find your package on npm.org, and provides a way to initiate commands for running and testing the package.
+`package.json` is the configuration file for your npm package. It's required for any npm module and is placed at in the root of your projects directory. `package.json` lets npm install dependencies, lets users find your package on npm.org, and provides a way to setup commands for running and testing the module.
 
 Some specific fields you can provide are:
 
@@ -43,7 +43,7 @@ Some specific fields you can provide are:
 * `dependencies`
 * `repository url`
 
-I wouldn't dare try to cover the details of this file here. For that, check at the documenation at [npm.org](https://npmjs.org/doc/files/package.json.html).
+I wouldn't dare try to cover the details of this file here. Visit [npm.org](https://npmjs.org/doc/files/package.json.html) for a complete description.
 
 ###/bin and /bin/hello
 

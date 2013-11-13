@@ -1,4 +1,4 @@
-#Creating Command Line Tools with Node.js
+#Warning: This is a collection of thoughts. It's not meant to be read.
 
 ##Forward
 
@@ -32,11 +32,11 @@ using arguments and prompts
 -----
 #Part II
 
-##Chapter Four - saving preferences/configuraitons
+##Chapter Four - saving preferences/configuratons
 
 create a file that lets to set, get, and delete config items
 
-##Chapter Five - introduction to comander
+##Chapter Five - introduction to commander
 
 using a library the self generates documentation and better argument parsing
 
