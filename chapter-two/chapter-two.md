@@ -2,11 +2,11 @@
 
 Okay, creating first command line tool is going to be simple. In this chapter we are going to setup a seed project you can use for all your future command line tools. We'll go over the basics to creating a command line tool that anyone can install via `npm`.
 
-`npm` is the package manager that is bundeled with node. It provides an easy way for people to install node modules. This will make a great distribution platform for the tools we create.
+`npm` is the package manager that is bundled with node. It provides an easy way for people to install node modules. This will make a great distribution platform for the tools we create.
 
 ##Prerequisites
 
-All you need to do is intall Node. You can download the installer at [Node.org](http://nodejs.org).
+All you need to do is install Node. You can download the installer at [Node.org](http://nodejs.org).
 
 Open a terminal and check that node and npm installed correctly. You can do that by checking the version for each.
 
@@ -47,7 +47,7 @@ I wouldn't dare try to cover the details of this file here. Visit [npm.org](http
 
 ###/bin and /bin/hello
 
-The bin directory contains files whos names represent commands that will be available once the module is installed. In this case, `/bin/hello` will register a command `hello` which you could run like this:
+The bin directory contains files whose names represent commands that will be available once the module is installed. In this case, `/bin/hello` will register a command `hello` which you could run like this:
 
 	PHLMLAMEAD:~$ hello
 
@@ -55,7 +55,9 @@ You can call the folder anything you like, but the name `bin` provides some cont
 
 ### /lib and /lib/hello.js
 
-The `/lib` directory is going to contain all the code that we need to run the commands. When someone runs the command `hello` from the terminal, the file in our `/bin` directory is going to call something in our `/lib` folder. This is done for clarity and reusablility. If you had a npm modules that has terminal access and could be used in someone elses project, you would not want two files repeating the same code.
+The `/lib` directory is going to contain all the code that we need to run the commands. When someone runs the command `hello` from the terminal, the file in our `/bin` directory is going to call something in our `/lib` folder.
+
+We could easily store everything in `/bin/hello`, but doing so would create code that is not reusable. It would be better to create a reusable API in `/lib/hello.js` that can be used globally via our command line tool, and reused locally within a separate node application.
 
 ##Global v. location installation
 
@@ -63,11 +65,11 @@ I want to touch on this real quick because it's important. There are two ways so
 
 	PHLMLAMEAD:~$ npm install hello
 	
-If a users installs you module locally, these modules will only be accessable from within that directory, and terminal commands will not be registered.
+If a users installs you module locally, these modules will only be accessible from within that directory, and terminal commands will not be registered.
 
 	PHLMLAMEAD:~$ npm install -g hello
 
-If a user installs your module globaly, it will register potential terminal commands with the terminal.
+If a user installs your module globally, it will register potential terminal commands with the terminal.
 
 Our commands will always require global installation so users can access them via the command line.
 
@@ -115,13 +117,11 @@ Note that this creates the `package.json` file for you. This is a barebones conf
 
 ##Configuring package.json for command line tools
 
-There are a couple specal attributes you need to configure to allows a global installation to register commands with the command prompt.
+To allow your script to be run from the terminal, there are a couple of configurations in `package.json` you need to be aware of.
 
 ###Prefer Global
 
-The first property to add is ```preferGlobal```. preferGloabl is a handy little property that tells npm this module is intended to be install globally and used from the terminal. If a user tries to install the module locally, npm will warn them that the package is intended for global installation.
-
-todo - add the entire file so they know
+The first property to add is `preferGlobal`. `preferGloabl` is a handy little property that tells npm this module is intended to be install globally and used from the terminal. If a user tries to install the module locally, npm will warn them that the package is intended for global installation.
 
 ```
 {
@@ -132,7 +132,7 @@ todo - add the entire file so they know
 ```
 ###Directories Property
 
-The ```directories``` property brings all our files together. It lets us tell npm which directories contain commands we want the user to access from the terminal.
+The `directories` property brings all our files together. It lets us tell npm which directories contain commands we want the user to access from the terminal.
 
 ```
 {
@@ -168,11 +168,9 @@ My final `package.json` file now looks like this:
 
 ##Writing some code
 
-Enough setup, let's write a little code.
+It's time to add some functionality to the module. The module going to provide a generic greeting to the user and allow the user to specify their name for a personal touch. The user will be able to specify their name via an argument.
 
-We are going to create a command line tool that will print out a generic gretting to the user. The user can also specify their name
-
-First things first is our `/bin/hello` file. This is the only file that's going to get executed when the command is run from the terminal. Let's check out is contents:
+The first file to edit is `/bin/hello`, which is the entrance point of the script. Below is the final version.
 
 **/bin/hello**
 	
@@ -180,25 +178,41 @@ First things first is our `/bin/hello` file. This is the only file that's going 
 	
 	require('./../lib/hello.js');
 
-It's only 2 lines long, and they are both pretty important.
+ This file has three jobs:
 
-The first line is called a shebang. It's prefaced with a `#!`. This tells the operating system that when this file is run as a program, run it with the following program. The rest of the file is run with the specified program.
+### 1. Provide a name to register with terminal
 
-In this case, the second line is the line that is run by node.
+What are uses going to type in the terminal to run the command? This file name is "hello", so uses will run the command by issuing the following:
 
-In line 2 we bootstrap out commands main file, which is located in `/lib/hello.js`. All we do here is execute the library file, so let's create that.
+	PHLMLAMEAD:~/code/hello$ hello
+
+### 2. Specify an environment to run in
+
+If the file contains javascript code, which this file does, it needs to instruct the computer to run this file with node. This is what the first line of the file does, and it is called the "shebang".
+
+	#!/usr/bin/env node
+
+Prefaced with "#!", the shebang provide the program that the rest of the files contents should be passed to. In this case, the rest of the file is passed into node, and is run as javascript.
+
+### 3. Bootstrap functionality
+
+Fo the sake of simplicity, `/bin/hello` intentionally contains very little. The second line is in charge of starting the library script. It uses a `require` statement and passes in the path to the library.
+
+	require('./../lib/hello.js');
+
+-----
+
+The only other file is `/lib/hello.js` which contains the code to execute. 
 
 **/lib/hello.js**
 
 	process.stdout.write('Hello World!\r\n');
 
-All this line does is write our message to the terminal, and go to a new line.
+All this line does is print out "Hello World!" and the move to the next line.
 
 ##Installing and running your module locally
 
-Let's install our module to test it out. In the terminal, navigate to the root of our package (the same place you ran `npm init` from).
-
-Run the install command, specifying the curreny directory as the location for installation.
+To install the module, navigate to the projects root directory in the terminal and run:
 
 	npm install -g ./
 
