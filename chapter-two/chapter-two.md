@@ -167,15 +167,9 @@ The first file to edit is `/bin/hello`.
 	var hello = require('./../lib/hello.js');
 	hello.greet();
 
- This file has three jobs:
-
-### 1. Provide Command name
-
-What are uses going to type in the terminal to run the command? This file name is "hello", so uses will run the command by issuing the following:
-
-	PHLMLAMEAD:~/code/hello$ hello
-
-### 2. Specify Environment
+ This file has two jobs:
+ 
+### 1. Specify Environment
 
 If the file contains javascript code, which this file does, it needs to instruct the computer to execute this file with node. This is what the first line of the file does, and it is called the "shebang".
 
@@ -183,7 +177,7 @@ If the file contains javascript code, which this file does, it needs to instruct
 
 Prefaced with "#!", the shebang provides the location of the program which should execute the files contents. In this case, the rest of the file is passed into node and is run as javascript.
 
-### 3. Calling A Library
+### 2. Access Library
 
 Fo the sake of simplicity, `/bin/hello` intentionally contains very little. The second line is in charge of starting the library script. It uses a `require` statement and passes in the path to the library.
 
