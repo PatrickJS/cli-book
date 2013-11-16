@@ -4,7 +4,7 @@ This chapter is going to provide you with the knowledge to create your first com
 
 ## Dependencies
 
-To get started make sure Node.js and npm are installed on your system. You can download the latest version of node at [nodejs.org](http://nodejs.org). npm is bundled with Node.js. There is not need to install it separatly.
+To get started make sure Node.js and npm are installed on your system. You can download the latest version of node at [nodejs.org](http://nodejs.org). npm is bundled with Node.js. There is not need to install it separately.
 
 npm is the package manager that is bundled with node. It let's you install modules that others have created, and publish your own modules. You can check it out at [npmjs.org](http://www.npmjs.org).
 
@@ -42,9 +42,9 @@ For a complete listing of configuration options, checkout the documentation at [
 
 ### project/bin/
 
-The bin directory contains commands we want to our module to add to the system PATH. The name of each file represent a command to register. If the directory contains a file called `my-command`, a user would be able to access its contents by running `my-command` from their terminal.
+The bin directory contains commands we want to our module to add to the system PATH. The files in bin will need to be configured in `package.json` which is done later in this chapter.
 
-The name bin is descriptive, but not required. The folder will need to be specified in `package.json` to have any special role.
+The name "bin" is descriptive but not required. It can be called anything you like.
 
 ### project/bin/hello
 
@@ -117,20 +117,22 @@ To allow your script to be run from the terminal, there are a couple of configur
   ...
 }
 ```
-### Specify bin Directory
+### Specify PATH Files
 
-To access files from the terminal, they need to be added to the PATH. npm let's you specify this via the directories property. All contents of this directory will be added to the system PATH.
+To access files from the terminal, they need to be added to the PATH. npm let's you specify this via the bin property. This property takes a hash of commands and files to run.
 
 ```
 {
   ...
   "preferGlobal": "true",
-  "directories": {
-    "bin": "./bin"
+  "bin": {
+        "hello": "./bin/hello"
   },
   ...
 }
 ```
+
+The above will register hello to the PATH, and it will execute our `project/bin/hello` file.
 
 ### Final configuration
 
@@ -145,9 +147,9 @@ The final configuration should look similar to this.
 	    "test": "echo \"Error: no test specified\" && exit 1"
 	  },
 	  "preferGlobal": "true",
-	  "directories": {
-	    "bin": "./bin"
-	  },
+	  "bin": {
+        "hello": "./bin/hello"
+      },
 	  "author": "Andrew Mead",
 	  "license": "BSD"
 	}
@@ -199,7 +201,7 @@ The only other file is `/lib/hello.js` which contains the code to execute.
 	// greet the user with a generic message
 	hello.greet = function () {
 		process.stdout.write('Hello World!\r\n');
-	}
+	};
 	
 	module.exports = hello;
 
