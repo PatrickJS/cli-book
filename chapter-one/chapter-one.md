@@ -4,9 +4,9 @@ Feel free to skip or skim this chapter if you're comfortable navigating and runn
 
 ##What is the command line?
 
-The command line is a text-based interface for running applications on your computer. It doesn't have any fancy GUIs and is a mouse-free area. The command line lets you access your computer at a basic level.
+The command line is a text-based interface for running applications on your computer. It doesn't have any fancy GUIs and is a mouse-free area. It lets you access your computer at a basic level.
 
-In the command line, you issue commands for your computer to run. The command line will display a prompt asking you for the command you want to run, you then type in the command you would like to run and your commoputer runs it. Once your command has run, the command line will display another prompt asking for the next command.
+In the command line, you issue commands for your computer to run. It will display a prompt asking you for instructions. You type in the command you would like to run and your computer tries to run it. Once your command has run, the command line will display another prompt asking for the next command.
 
 You can do anything from the command line. Anything you can't do, you can build. The best part about the command line is that it has never been easier to create complex and powerful command line tools.
 
@@ -14,29 +14,29 @@ You can do anything from the command line. Anything you can't do, you can build.
 
 ##Accessing the command line
 
-Depending on your operating system, the command line may be called something slightly different. In OS X it's called "terminal" and in Windows it is called "command prompt". These both refer the to operating system version of the command prompt.
+Depending on your operating system, the command line may be called something slightly different. In OS X it's called "terminal". In Windows it's called "command prompt". These both refer the to operating systems version of the command prompt.
 
 **note** - For brevities sake, I will refer to the command prompt as the terminal regardless of the operating system.
 
-**Opening Terminal in OS X** - If you are on a Mac you can open the terminal by navigating to `Application/Utilities` and selecting `Terminal`. This will launch a terminal, presenting you with a screen that will look something like this.
+**Opening Terminal in OS X** - If you are on a Mac, you can open the terminal by navigating to `Application/Utilities` and selecting `Terminal`. This will launch a terminal, presenting you with a screen that will look something like this.
 
-<!--![OSX Terminal](./images/osx-terminal.png)-->
+![OSX Terminal](./images/osx-terminal.png)
 
 **Opening the command prompt in Windows** - You can open the terminal in Windows by navigating to `C:\Windows\System32` and executing `cmd.exe`. You can also press `windows key + r`, type in `cmd`, and click enter. You should now see a window similar to this.
 
-<!--![Windows Command Prompt](./images/windows.png)-->
+![Windows Command Prompt](./images/windows.png)
 
 Every operating system has something similar. In Ubuntu, you can search for "terminal" to find its terminal. Other linux distributions have something similar.
 
 ##The prompt
 
-Just like I promised, you are now in front of a black, text-based, computer program. The terminal has several different parts, and understanding the vocabulary will go a long way to successfully creating your own terminal tools.
+Just like I promised, you are now in front of a black, text-based, computer program. The terminal has several different parts and understanding the vocabulary will go a long way to successfully creating your own tools.
 
-First up, the `prompt`. When your computer is ready for you to give it a command, it will show the `prompt`. This is all the gibberish that appears before your cursor. My OS X prompt looks like this.
+First is the `prompt`. When your computer is ready for you to give it a command, it will displa a `prompt`. The prompt will look something like this:
 
 	PHLMLAMEAD:~/code$ _
 
-The first thing on this line is my username. Next is a colon which serves as a seperator. Following that is something called the `current working directory`. Whenever you are in the terminal, you are alway inside a specific folder. This may be you user directory or your documents folder. Either way, at any point in time you have a current working directory. This is followed by a dollar sign.
+The first thing on this line is my username. Next is a colon which serves as a seperator. Following that is something called the `current working directory`. Whenever you are in the terminal, you are always inside of a specific folder. This may be your user directory or your documents folder. Either way, at any point in time you have a current working directory. This is followed by a dollar sign.
 
 Everything after the dollar sign is the command you are going to run. You can type and edit your command, and when you hit enter your computer will attempt to run it.
 
@@ -55,17 +55,19 @@ Remember the current working directory that we talked about? While if you issue 
 	
 	PHLMLAMEAD:~/code/creating-clis-in-nodejs$ _
 
-Above you can see the prompt we previously discussed. This is handy for running `ls` becuase it tell me which directory I will be print the contents of. As you can see, I'm running the command from the `~/code/creating-clis-in-nodejs/` directory.
+Above you can see the prompt we previously discussed. This is handy for running `ls` becuase it tells me which directory I will be printing the contents of. As you can see, I'm running the command from the `~/code/creating-clis-in-nodejs/` directory.
 
-After the dollar sign I type in my command, click enter, and view the results.
+After the dollar sign I type in my command, press enter, and view the results.
 
-The line after the prompt contains the results of the issued command. Notice there is no prompt on this line, it starts with the results. In my case, its two folders, `chapter-one` and `overview`, and a file called `readme.md`.
+The line after the prompt contains the results of the issued command. Notice there is no prompt on this line, it starts with the results. In my case, its two folders, `chapter-one` and `overview`, with a file called `readme.md`.
 
 After issuing the command, I am returned back to the prompt to tell my computer what to do next.
 
 ##Command syntax
 
 Commands like `ls` can take other inputs as well. These come in the form of arguments and flags.
+
+###Flags
 
 Flags are are options that can alter the operation of a command. They start with one or two dashes (`-`). They can operate alone or they might take an additional arguments after a white space. Let's take a look at a flag that the `ls` command supports.
 
@@ -79,7 +81,7 @@ Flags are are options that can alter the operation of a command. They start with
 
 Notice we are running the same command from the same folder, yet we are getting a different result. This is because of the flag, `-l`. `-l` lets you provide a custom directory to print the contents of, instead of your current working directory. `-l` takes an arguments with is the directory to use in place of the current working directory.
 
------
+###Arguments
 
 Some commands require arguments to run. The `mkdir` command creates a new directory in your cwd. Let's run it without any arguments or flags.
 
@@ -88,7 +90,7 @@ Some commands require arguments to run. The `mkdir` command creates a new direct
 	
 	PHLMLAMEAD:~$ _
 
-The command was not run with the required arguments, so it printed out instructions on how to use it. Notice how `-pv` and `-m mode` are wrapped in brackets. Flags or arguments surrounded in brackets are optional. The `directory` argument however is required.
+The command was not run with the required arguments, so it printed out instructions on how to use it. Notice how `-pv` and `-m mode` are wrapped in brackets. Flags or arguments surrounded in brackets are optional. The `directory` argument is required.
 
 Let's run `mkdir` again, but this time provide a name for our new folder.
 
@@ -106,13 +108,13 @@ This time the correct arguments were provided so the command successfuly ran. Yo
 
 We've talked about the current working directory quite a bit, and how you are always in a directory when you in the terminal. If you want to navigate to a different directory, you will need to learn about the `cd` command.
 
-``cd` stands for "change directory", and it is at the heart of terminal navigation. It lets you navigates relative to your current position, navigate relative to your systems root directory, and on some operating system you can navigate relative to your user folder.
+`cd` stands for "change directory", and it is at the heart of terminal navigation. It lets you navigates relative to your current position, navigate relative to your systems root directory, and on some operating system you can navigate relative to your user folder.
 
 **warning** - The `cd` command has some differences between operating systems. I will point out these differences along the way.
 
 ###Navigating to a nested folder
 
-The first way to change directory is my starting from your cwd and navigating to its parent or starting from your cwd and navigating into a nested directory. 
+The first way to change directory is my starting from your cwd and navigating to its parent, or starting from your cwd and navigating into a nested directory. 
 
 Let's start back in my `code` direcetory where we created a new folder with `mkdir`. To navigate into that folder, and updated the cwd, you need to run the following:
 
@@ -134,9 +136,9 @@ I started inside of `some-folder`, and after running `cd` the current working di
 
 ###Navigating relative to the root directory
 
-There are a couple other ways you can use cd. These have no respect to your current directory.
+There are a couple other ways you can use cd. These are not relative to your current working directory.
 
-If you want to navigate relative to your computers root directory, you can use `cd`, but prefacy the directory name with a forward slash.
+If you want to navigate relative to your computers root directory, preface your path with a foward slash.
 
 	PHLMLAMEAD:~/code/some-folder$ cd /bin
 	
@@ -158,4 +160,6 @@ Obviously if I login as someone else, using `~/` will be a different user direct
  
 ##Ready to go
 
-Congratulations, you have passed basic training~
+Okay, let's start by creating a command line tool.
+
+[Chapter Two](./../chapter-two/chapter-two.md)
