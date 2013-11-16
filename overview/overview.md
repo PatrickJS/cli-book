@@ -1,19 +1,19 @@
-#Warning: This is a collection of thoughts. It's not meant to be read.
+# Warning: This is a collection of thoughts. It's not meant to be read.
 
 ##Forward
 
 need to already know basics of javascript
 
 -----
-#Part I
+# Part I
 
-##Chapter One - Command Line Tool Overview
+## Chapter One - Command Line Tool Overview
 
 * What is a command line tool?
 * clt arguments
 * prompts
 
-##Chapter Two - Backbone for cli in node
+## Chapter Two - Backbone for cli in node
 
 This chapter is going to be similar to the post I wrote. Explaining the basic, no-library setup.
 
@@ -23,18 +23,24 @@ This chapter is going to be similar to the post I wrote. Explaining the basic, n
 * install them
 * use stdout, not console.log
 
-##Chapter Three - Arguments and Prompts
-
-arguments and prompts
+## Chapter Three - Arguments and Prompts
 
 using arguments and prompts
+
+give examples of other modules that do this well
+
+## Chapter Four - Publishing and Distribution
+
+publishing and installing modules. updating. readme.md, git links, and stats
 
 -----
 #Part II
 
-##Chapter Four - saving preferences/configuratons
+##Chapter Four - saving preferences/configurations
 
 create a file that lets to set, get, and delete config items
+
+# chapters 5 and 6 are shit.
 
 ##Chapter Five - introduction to commander
 
